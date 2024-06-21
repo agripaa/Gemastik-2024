@@ -1,0 +1,31 @@
+<!-- app/templates/components/sidebar.html -->
+<aside class="sidebar">
+    <div class="user_info">
+        <div class="image_user">
+            <img src="{{url_for('static', filename='image/Image.png')}}" alt="User Image">
+        </div>
+        <div class="name_user">
+            <h2>Jhon Smith</h2>
+        </div>
+    <div class="perangkat_user">
+        <h3>Status Perangkat</h3>
+        <div class="perangkat">
+            <span class="status_online">4 Online</span>
+            <span class="status_offline">1 Offline</span>
+        </div>
+    </div>
+    </div>
+
+    <div class="link_side">
+        <p>Menu</p>
+        <ul>
+            <li><a href="/"><i class="ri-dashboard-fill"></i> Dashboard</a></li>
+            <li><a href="/laporan"><i class="ri-bar-chart-fill"></i> Laporan</a></li>
+            <li><a href="/new-kolam"><i class="ri-add-fill"></i> Kolam Baru</a></li>
+        </ul>
+    </div>
+    
+    <div class="other">
+        <i class="ri-menu-fill"></i> Lainnya
+    </div>
+</aside>

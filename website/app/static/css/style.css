@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+/* Reset some basic elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+}
+
+/* Container for sidebar and main content */
+.wrapper {
+    display: flex;
+}
+
+/* Sidebar styles */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 250px;
+    background-color: #574EFF;
+    color: #fff;
+    padding: 20px;
+    height: 100vh; /* Ensure it spans the full height */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #2400EF;
+}
+
+.user_info {
+    text-align: center;
+}
+
+.image_user{
+    margin-top: 35px;
+}
+
+.image_user img {
+    width: 120px;
+    border-radius: 50%;
+    height: auto;
+    margin-bottom: 10px;
+    background-color: #f4f4f4;
+}
+
+.name_user h2 {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.perangkat_user {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.perangkat_user h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.perangkat {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.perangkat span {
+    padding: 0 8px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status_online {
+    color: #006400;
+    background-color: #b9f4bc;
+}
+
+.status_offline {
+    color: #8b0000;
+    background-color: #f8d0d8;
+}
+
+.link_side {
+    width: 100%;
+}
+
+.link_side p {
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.other {
+    text-align: left;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.other i {
+    margin-right: 10px;
+}
+
+/* Main content styles */
+.content {
+    margin-left: 250px; /* Ensure enough space for the fixed sidebar */
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #f4f4f4;
+}
+
+.content p {
+    margin-bottom: 15px;
+}
