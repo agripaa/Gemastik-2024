@@ -10,6 +10,39 @@
 body {
     font-family: 'DM Sans', sans-serif;
     line-height: 1.6;
+    background-color: #f8f9fa; /* Light background color */
+    color: #333; /* Dark text color for readability */
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Status styles */
+.status_online {
+    color: #006400;
+    background-color: #b9f4bc;
+}
+
+.status_none {
+    color: white;
+    background-color: transparent;
+}
+
+.status_offline {
+    color: #8b0000;
+    background-color: #f8d0d8;
+}
+
+.status_no-data {
+    color: #111113;
+    background-color: #DDDDDE;
+}
+
+.status_murky {
+    color: #1E2100;
+    background-color: #F5FF9D;
 }
 
 /* Container for sidebar and main content */
@@ -65,7 +98,7 @@ body {
     text-align: center;
 }
 
-.image_user{
+.image_user {
     margin-top: 35px;
 }
 
@@ -109,16 +142,6 @@ body {
     font-weight: 500;
 }
 
-.status_online {
-    color: #006400;
-    background-color: #b9f4bc;
-}
-
-.status_offline {
-    color: #8b0000;
-    background-color: #f8d0d8;
-}
-
 .link_side {
     width: 100%;
 }
@@ -143,11 +166,998 @@ body {
 /* Main content styles */
 .content {
     margin-left: 250px; /* Ensure enough space for the fixed sidebar */
-    padding: 20px;
     flex-grow: 1;
-    background-color: #f4f4f4;
 }
 
 .content p {
     margin-bottom: 15px;
+}
+
+/* Dashboard content style */
+.dashboard_content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+}
+
+.pool_section {
+    display: flex;
+    flex-direction: column;
+}
+
+.header_dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.header_dashboard h2 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.button_filter {
+    font-size: 15px;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: #f4f4f4;
+    background-color: #574EFF;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.button_filter:hover {
+    background-color: #2400EF;
+}
+
+.list_kolam {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+    gap: 20px;
+}
+
+.box_pool {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #B5B5B9;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+
+.box_pool:hover {
+    cursor: pointer;
+    transform: translateY(-1px);
+}
+
+.pool_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.pool_info h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.fish_category {
+    text-align: center;
+}
+
+.fish_category h4 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #888;
+}
+
+.fish_category h5 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.water_value {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.water_info, .more_info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.water_info h5, .more_info h5 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.water_quality, .water_pH, .device_info, .water_temp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: start;
+    width: 100%;
+    margin: 0 5px 0 5px;
+}
+
+.val_res {
+    padding: 0 10px 0 10px;
+    width: 27%;
+    height: 80%;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+/* Resource style */
+
+.resource_section{
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.header_resource p {
+    line-height: 1;
+    font-weight: 500;
+}
+
+.list_resource {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    gap: 20px;
+}
+
+
+.box_resource{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.box_resource:hover{
+    cursor: pointer;
+}
+
+.img_resource img{
+    width: 100%;
+}
+
+.info_resource {
+    margin: 0 5px 0 5px;
+    width: 80%;
+}
+
+.info_resource .link_resource {
+    display: flex;
+    flex-direction: column;
+     /* Ensures the link takes full height */
+    justify-content: space-between; /* Aligns content evenly */
+}
+
+.link_resource{
+    justify-content: space-between;
+}
+
+.info_resource p {
+    line-height: 1.3;
+    font-size: 14px;
+    font-weight: 550;
+    color: #6A6A72;
+}
+.link_read {
+    width: 100%;
+    margin-top: auto;
+}
+
+.link_read a {
+    display: flex;
+    color : #574EFF;
+    font-size: 15px;
+    font-weight: 600;
+    align-items: center;
+}
+
+.link_read a i {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.list_tag {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 20%;
+}
+
+.tag {
+    background-color: #8F8F95;
+    margin: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #FFFFFF;
+    padding: 0 5px;
+    width: 15%;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* article style */
+
+.article_content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.header_article img{
+    width: 100%;
+    height: 350px;
+}
+
+.tag-article{
+    margin:10px 0 0 20px;
+}
+
+.tag-article span {
+    padding: 2px  5px;
+}
+
+.body_article {
+    padding: 15px 25px 0 25px;
+    margin-top: 30px;
+}
+
+.body_article p{
+    font-weight: 500;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 1.2;
+}
+
+.body_article h4 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.body_article h1 {
+    font-size: 34px;
+    font-weight: 800;
+} 
+
+.body_article p a {
+    color: #574EFF;
+}
+
+.prev_page-btn {
+    position: absolute;
+    top: 25px;
+    left: 275px;
+}
+
+.prev_page-btn a {
+    background-color: #FFFFFF;
+    padding: 8px 11px;
+    font-size: 18px;
+    font-weight: 500;
+    border: 1px solid #574EFF;
+    color: #574EFF;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.prev_page-btn a i, .prev_dashboard-kolam a i {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+/* Kolam style */
+
+.kolam_section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.prev_dashboard-kolam a {
+    padding: 8px 11px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #574EFF;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.cam{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.cam img {
+    width: 90%;
+}
+
+.pool_detail_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    width:100%;
+}
+
+.wrap_pool-info {
+    width: 90%;
+}
+
+.header_info-pool h2 {
+    font-size: 24px;
+    color: #252525;
+}
+
+.header_info-pool h5 {
+    font-size: 16px;
+    color: #29292E;
+}
+
+.list_info-box {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.box_info_pool {
+    display: flex;
+    flex-direction: column;
+    width: 12%;
+    padding: 20px;
+    height: 130px;
+    justify-content: space-between;
+    border-radius: 8px;
+    margin-right: 10px;
+    text-align: center;
+    border: 2px solid #B5B5B9;
+    padding: 5px;
+}
+
+.content-info{
+    padding: 10px;
+}
+
+.title_box-info {
+    font-weight: 600;
+    font-size: 1.02rem;
+}
+
+
+.info1_box-info {
+    font-weight: 550;
+    font-size: 1.1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.info2_box-info{
+    justify-content: center;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.info2_box-info span {
+    padding: 1px 14px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.detail_pool-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+  } 
+
+.btn-switch {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+.box_info_pool input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 1px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #25B100;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #25B100;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+.switch-label{
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    line-height: 15px;
+}
+
+.switch-sublabel{
+    font-weight: 600;
+}
+
+.switch-status{
+    font-weight: 500;
+}
+
+/* Laporan Page Style */
+.laporan_section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+}
+
+.header_laporan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.header_laporan h2 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.content_laporan {
+    display: flex;
+    width: 100%;
+}
+
+.list_laporan {
+    display: flex;
+    flex-wrap: wrap; /* Membuat kotak terbungkus ke baris berikutnya jika melebihi lebar kontainer */
+    gap: 20px; /* Menambahkan ruang antar kotak */
+    width: 100%;
+    justify-content: space-between; /* Mengatur spasi antara kotak */
+}
+
+.box_laporan {
+    flex: 1 1 calc(50% - 10px); /* Membuat dua kotak per baris dengan sedikit ruang di antara mereka */
+    max-width: calc(50% - 10px); /* Pastikan setiap kotak tidak melebihi setengah dari lebar kontainer */
+    border: 2px solid #B5B5B9;
+    border-radius: 20px;
+    padding: 20px;
+    flex-direction: column;
+    box-sizing: border-box; /* Memastikan padding tidak mempengaruhi ukuran kotak */
+}
+
+.title_laporan-box h2 {
+    font-size: 24px;
+}
+
+.header_laporan_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.list_box_info_kolam {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn_status_kolam {
+    padding: 5px 15px;
+    color: #574EFF;
+    border: 1px solid #574EFF;
+    border-radius: 8px;
+    background: transparent;
+    font-weight: 600;
+    font-size: 15px;
+}   
+
+.cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.avg_quality_water {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.avg_quality_water h4 {
+    font-weight: 500;
+}
+
+.avg_quality_water span {
+    padding: 2px 25px;
+    font-weight: 600;
+    border-radius: 15px;
+}
+
+/* Pool Deatail Page Style */
+.detail-kolam_section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+}
+
+.pool_detail-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 4% 15px 0 15px;
+}
+
+.list_box_info_kolam-detail {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: start;
+}
+
+.btn_status_kolam-detail {
+    padding: 5px 15px;
+    color: #574EFF;
+    margin-right: 25px;
+    border: 1px solid #574EFF;
+    border-radius: 8px;
+    background: transparent;
+    font-weight: 600;
+    font-size: 15px;
+}  
+
+.cart_kolam-detail {
+    margin: 5% 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.cart_kolam-detail img{
+    width: 15%;
+}
+
+.detail_water {
+    display: flex;
+    flex-direction: column;
+}
+
+.avg_pool_datas{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin-top: 3%;
+}
+
+.list_laporan-box {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100px;
+}
+
+.box_laporan_pool {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 110px;
+    padding: 10px;
+    height: 100%;
+    border-radius: 8px;
+    margin-right: 10px;
+    text-align: center;
+    border: 2px solid #B5B5B9;
+}
+
+.box_laporan_pool h2 {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.box_laporan_pool h4 {
+    font-weight: 500;
+}
+
+.active-btn, .btn_status_kolam-detail:hover {
+    background-color: #574EFF;
+    color: white;
+    cursor: pointer;
+}
+
+/* Style untuk modal */
+/* create modal */
+/* Modal */
+.modal {
+    display: none; /* Tersembunyi secara default */
+    position: fixed; 
+    z-index: 5; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: none; 
+    background-color: rgba(0, 0, 0, 0.4); /* Warna gelap untuk background */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% dari atas dan tengah secara horizontal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 25%; /* Lebar modal */
+    border-radius: 10px; /* Membulatkan sudut */
+    position: relative;
+}
+
+/* Tombol close (x) di sudut kanan atas modal */
+.modal-content .close,
+.modal-content .close-success {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: black;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal-content .close i,
+.modal-content .close-success i {
+    font-size: 24px; /* Menggunakan ikon */
+}
+
+.modal-content .close:hover,
+.modal-content .close:focus,
+.modal-content .close-success:hover,
+.modal-content .close-success:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Style untuk tombol */
+.modal-content .btn,
+.modal-content .btn-close-success {
+    background-color: #574EFF; 
+    font-weight: 550;
+    width: 100%;
+    color: white;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content .btn:hover,
+.modal-content .btn-close-success:hover {
+    background-color: #120093;
+}
+
+/* Form styles */
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form label {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+#kolamForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#kolamForm input, #kolamForm select {
+    width: 100%;
+    border: 2px solid #B5B5B9;
+    font-size: 16px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    appearance: none; /* Hapus default appearance */
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper .icon {
+    position: absolute;
+    right: 10px;
+    top: 72%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Agar tidak mengganggu interaksi select */
+    color: black; /* Warna ikon */
+    font-size: 20px;
+}
+
+.btn-submit {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Custom select style */
+#kolamForm select {
+    padding-right: 30px; /* Ruang untuk ikon */
+}
+
+#kolamForm option.disable_choice {
+    color: #B5B5B9; /* Warna untuk placeholder */
+}
+
+#fish option {
+    padding: 10px 5px;
+}
+
+/* Hilangkan outline select saat fokus */
+#kolamForm select:focus {
+    outline: none;
+}
+
+/* Success Modal Styles */
+.success-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.success-content i {
+    color: #25B100;
+    font-size: 150px; /* Ukuran ikon */
+}
+
+.success-content p {
+    font-size: 18px; /* Ukuran teks */
+    margin-top: 10px;
+}
+
+.success-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #25B100;
+    border-radius: 10px 10px 0 0;
+    animation: loading 2s linear;
+}
+
+@keyframes loading {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Notification Modal Styles */
+.notification-content {
+    width: 20%;
+    height: auto;
+    max-height: 50%;
+    overflow-y: auto; /* Add scroll if content exceeds max-height */
+}
+
+.notification-list {
+    margin-top: 20px;
+}
+
+.notification-data {
+    margin: 5px 5px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #808080;
+}
+
+.notification-list  {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #e7e7e7;
+    border-radius: 5px;
+}
+
+.notification-content h4 {
+    font-weight: 500;
+}
+
+.notif_head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.status-notif {
+    margin-left: 10px;
+    padding: 0px 20px;
+    border-radius: 15px;
+    font-weight: 500;
+}
+
+.notif_body {
+    margin-top: 5px;
+}
+
+.water_quality-notif{
+    display: flex;
+    flex-direction: row;
+}
+
+.water_quality-notif h4{
+    font-weight: 500;
+}
+
+.header_modal_content .close-notification {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: black;
+    font-size: 28px;;
+    cursor: pointer;
+}
+
+.header_modal_content {
+    margin-bottom: 10px;
+}
+
+.notif_body p{
+    line-height: 1.2;
+}
+
+.notif_head h4{
+    font-weight: 600;
+}
+
+.header_modal_content .close-notification i {
+    font-size: 24px; /* Menggunakan ikon */
+}
+
+.header_modal_content .close-notification:hover,
+.header_modal_content .close-notification:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Other Menu Modal Styles */
+.menu-content {
+    width: 15%;
+    text-align: center;
+}
+
+
+.menu-item{
+    padding: 10px;
+}
+
+.border-t{
+    border-top: 1px solid #B5B5B9;
+}
+
+.menu-item p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.menu-item p:hover{
+    cursor: pointer;
+}
+
+.out {
+    color: #BB595D;
+}
+
+/* Custom Scrollbar Styles */
+.notification-content::-webkit-scrollbar {
+    width: 4px; /* Width of the entire scrollbar */
+}
+
+.notification-content::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the draggable scrollbar */
+    border-radius: 10px; /* Rounded corners for thumb */
+}
+
+.notification-content::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Darker color on hover */
+}
+
+.notification-content::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for track */
+}
+
+.notification-content::-webkit-scrollbar-track-piece {
+    background: #e7e7e7; /* Color for scrollbar track piece */
+    border-radius: 10px; /* Optional: Additional rounded corners */
 }

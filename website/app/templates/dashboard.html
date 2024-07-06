@@ -3,5 +3,110 @@
 {% block title %} Dashboard {% endblock %}
 
 {% block content %}
-<p>Dashboard</p>
+<div class="dashboard_content">
+    <section class="pool_section">
+        <div class="header_dashboard">
+            <h2>Perangkatmu</h2>
+            <button class="button_filter"><i class="ri-filter-2-fill"></i> Filter</button>
+        </div>
+        <div class="list_kolam">
+            {% for kolam in kolam_data %}
+            <div class="box_pool">
+                <a href="/kolam/{{kolam.nama}}">
+                    <div class="pool_info">
+                        <h3>{{ kolam.nama }}</h3>
+                        <div class="fish_category">
+                            <h4>Jenis Ikan</h4>
+                            <h5>{{ kolam.jenis_ikan }}</h5>
+                        </div>
+                    </div>
+                    <div class="water_value">
+                        <div class="water_info">
+                            <div class="water_quality">
+                                <h5>Kualitas Air</h5>
+                                <span class="
+                                {% if kolam.kualitas_air == 'Jernih' %}
+                                    status_online
+                                {% elif kolam.kualitas_air == 'Keruh' %}
+                                    status_murky
+                                {% else %}
+                                    status_no-data
+                                {% endif %}
+                                val_res">{{ kolam.kualitas_air }}</span>
+                            </div>
+                            <div class="device_info">
+                                <h5>Status Perangkat</h5>
+                                <span class="
+                                {% if kolam.status == 'Online' %}
+                                    status_online
+                                {% else %}
+                                    status_offline
+                                {% endif %}
+                                val_res">{{ kolam.status }}</span>
+                            </div>
+                        </div>
+                        <div class="more_info">
+                            <div class="water_pH">
+                                <h5>pH Air</h5>
+                                <span class="
+                                {% if kolam.ph == 'Normal' %}
+                                    status_online
+                                {% elif kolam.ph == 'Tinggi' %}
+                                    status_warning
+                                {% elif kolam.ph == 'Rendah' %}
+                                    status_offline
+                                {% else %}
+                                    status_no-data
+                                {% endif %}
+                                val_res">{{ kolam.ph }}</span>
+                            </div>
+                            <div class="water_temp">
+                                <h5>Suhu</h5>
+                                <span class="
+                                {% if kolam.suhu == 'Normal' %}
+                                    status_online
+                                {% elif kolam.suhu == 'Tinggi' %}
+                                    status_warning
+                                {% elif kolam.suhu == 'Rendah' %}
+                                    status_offline
+                                {% else %}
+                                    status_no-data
+                                {% endif %}
+                                val_res">{{ kolam.suhu }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <section class="resource_section">
+        <div class="header_resource">
+            <h2>Resource</h2>
+            <p>Pengetahuan adalah kekuatan. Temukan Informasi menarik kami!</p>
+        </div>
+        <div class="list_resource">
+            {% for resource in resource_data%}
+            <div class="box_resource">
+                <a href="/article" class="link_resource">
+                    <div class="img_resource">
+                        <img src="{{url_for('static', filename=resource.image_path)}}" alt="Image Resource">
+                    </div>
+                    <div class="info_resource">
+                        <p>{{ resource.title }}</p>
+                        <div class="link_read">
+                            <a href="">Read More <i class="ri-arrow-right-s-line"></i></a>
+                        </div>
+                    </div>
+                </a>
+                <div class="list_tag">
+                    <span class="tag">Tag 1</span>
+                    <span class="tag">Tag 2</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
 {% endblock %}

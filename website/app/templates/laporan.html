@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="laporan_section">
+    <div class="wrap_laporan">
+        <div class="header_laporan">
+            <h2>Perangkatmu</h2>
+            <button class="button_filter"><i class="ri-calendar-todo-fill"></i> 30 Hari</button>
+        </div>
+    </div>
+    <div class="content_laporan">
+        <div class="list_laporan">
+            {% for laporan in laporan_data %}
+                <div class="box_laporan">
+                    <a href="/laporan-detail/{{laporan.nama}}">
+                        <div class="header_laporan_box">
+                            <div class="title_laporan-box">
+                                <h2>{{ laporan.nama }}</h2>
+                            </div>
+                            <div class="fish_category">
+                                <h4>Jenis Ikan</h4>
+                                <h5>{{ laporan.jenis_ikan }}</h5>
+                            </div>
+                        </div>
+                        <div class="body_laporan_box">
+                            <div class="list_box_info_kolam">
+                                <button class="btn_status_kolam active-btn">
+                                    Kualitas Air
+                                </button>
+                                <button class="btn_status_kolam">
+                                    Suhu Air
+                                </button>
+                                <button class="btn_status_kolam">
+                                    pH Air
+                                </button>
+                                <button class="btn_status_kolam">
+                                    Pemakaian
+                                </button>
+                            </div>
+                            <div class="cart">
+                                <img src="{{url_for('static', filename='/image/c.png')}}" alt="cart">
+                            </div>
+                            <div class="avg_quality_water">
+                                <h4>Rata-rata kualitas air</h4>
+                                <span class="
+                                {% if laporan.kualitas_air_avg == 'Jernih' %}
+                                status_online
+                                {% elif laporan.kualitas_air_avg == 'Keruh' %}
+                                    status_murky
+                                {% else %}
+                                    status_no-data
+                                {% endif %}
+                                val_res
+                            ">{{ laporan.kualitas_air_avg }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

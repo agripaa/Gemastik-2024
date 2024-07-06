@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="detail-kolam_section">
+    <div class="prev_dashboard-kolam">
+        <a href="/laporan"><i class="ri-arrow-left-line"></i> Back</a>
+    </div>
+    <div class="pool_detail-content">
+        <div class="pool_detail_header">
+            <h2>{{ name }}</h2>
+            <h4>filter by data</h4>
+        </div>
+        <div class="list_box_info_kolam-detail">
+            <button class="btn_status_kolam-detail active-btn">
+                Today
+            </button>
+            <button class="btn_status_kolam-detail">
+                3 Hari
+            </button>
+            <button class="btn_status_kolam-detail">
+                1 Minggu
+            </button>
+            <button class="btn_status_kolam-detail">
+                1 Bulan
+            </button>
+            <button class="btn_status_kolam-detail">
+                1 Tahun
+            </button>
+            <button class="btn_status_kolam-detail">
+                Pilih Tanggal
+            </button>
+        </div>
+        <div class="cart_kolam-detail">
+            <img src="{{url_for('static', filename='/image/c.png')}}" alt="pool detail cart">
+        </div>
+        <div class="detail_water">
+            <h4>filter by data</h4>
+            <div class="list_box_info_kolam-detail">
+                <button class="btn_status_kolam-detail active-btn">
+                    Kualitas Air
+                </button>
+                <button class="btn_status_kolam-detail">
+                    Suhu Air
+                </button>
+                <button class="btn_status_kolam-detail">
+                    pH Air
+                </button>
+                <button class="btn_status_kolam-detail">
+                    Pemakaian
+                </button>
+            </div>
+        </div>
+        <div class="avg_pool_datas">
+            <h4>Data Rata-rata kolam</h4>
+            <div class="list_laporan-box">
+                <div class="box_laporan_pool">
+                    <h2 class="title_box-info">Jenis Ikan</h2>
+                    <h4 class="info1_box-info">Gabus</h4>
+                </div>
+                <div class="box_laporan_pool">
+                    <h2 class="title_box-info">Kualitas Air</h2>
+                    <h4 class="info2_box-info"><span class="status_online">Jernih</span></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

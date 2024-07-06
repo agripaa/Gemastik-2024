@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='fonts/remixicon.css' )}}">
-
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -16,5 +15,89 @@
             {% block content %} {% endblock %}
         </div>
     </div>
+
+    <!-- Modal Tambah Kolam -->
+    <div id="kolamBaruModal" class="modal">
+        <div class="modal-content">
+            <div class="header_modal_content">
+                <h2 class="modal-title">Tambahkan Kolam</h2>
+                <span class="close"><i class="ri-close-line"></i></span>
+            </div>
+            <form id="kolamForm">
+                <div class="form">
+                    <label for="namaKolam" class="form-label">Nama Kolam</label>
+                    <input type="text" placeholder="Nama" class="form-control" id="namaKolam" name="namaKolam" required>
+                </div>
+                <div class="form select-wrapper">
+                    <label for="fish" class="form-label">Jenis Ikan</label>
+                    <span class="icon"><i class="ri-arrow-down-s-line"></i></span>
+                    <select name="fish" id="fish">
+                        <option class="disable_choice" value="">Pilih Jenis Ikan</option>
+                        <option value="Mujair">Mujair</option>
+                        <option value="Gabus">Gabus</option>
+                        <option value="Lele">Lele</option>
+                        <option value="Nila">Nila</option>
+                    </select>
+                </div>
+                <div class="btn-submit">
+                    <button type="submit" class="btn">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Success Submit -->
+    <div id="successSubmitModal" class="modal">
+        <div class="modal-content success-content">
+            <i class="ri-checkbox-circle-fill"></i>
+            <p>Kolam baru berhasil ditambahkan.</p>
+        </div>
+    </div>
+
+    <!-- Modal Other Menu -->
+    <div id="otherMenuModal" class="modal">
+        <div class="modal-content menu-content">
+            <div class="menu-item" id="notification">
+                <p>Notification</p>
+            </div>
+            <div class="menu-item border-t" id="logout">
+                <p class="out">Keluar</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Notification -->
+    <div id="notificationModal" class="modal">
+        <div class="modal-content notification-content">
+            <div class="header_modal_content">
+                <h2 class="modal-title">Notifikasi</h2>
+                <span class="close-notification"><i class="ri-close-line"></i></span>
+            </div>
+            <h4>Today</h4>
+            <div class="notification-list">
+                {% if notification_data %}
+                    {% for notification in notification_data %}
+                        <div class="notification-data">
+                            <div class="notif_head">
+                                <h4>{{ notification.nama }}</h4>
+                                <div class="water_quality-notif">
+                                    <h4>Kualitas Air :</h4>
+                                    <span class="status_murky status-notif">{{ notification.kualitas_air }}</span>
+                                </div>
+                            </div>
+                            <div class="notif_body">
+                                <p>{{ notification.more_information }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Tidak ada notifikasi baru.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='/js/script.js')}}">
+</script>
 </body>
 </html>

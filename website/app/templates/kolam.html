@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="kolam_section">
+    <div class="prev_dashboard-kolam">
+        <a href="/"><i class="ri-arrow-left-line"></i> Go To Dashboard</a>
+    </div>
+    <div class="cam">
+        <img src="{{url_for('static', filename='image/k.png')}}" alt="Kolam cam">
+    </div>
+    <div class="pool_detail_info">
+        <div class="wrap_pool-info">
+            <div class="header_info-pool">
+                <h2>{{name}}</h2>
+                <h5>Data Kolam</h5>
+            </div>
+            <div class="detail_pool-info">
+                <div class="list_info-box">
+                    <div class="box_info_pool">
+                        <div class="title_box-info">Jenis Ikan</div>
+                        <div class="info1_box-info">Gabus</div>
+                        <div class="info2_box-info"></div>
+                    </div>
+                    <div class="box_info_pool">
+                        <div class="title_box-info">Kualitas Air</div>
+                        <div class="info2_box-info"><span class="status_online">Jernih</span></div>
+                        <div class="info2_box-info"></div>
+                    </div>
+                    <div class="box_info_pool">
+                        <div class="title_box-info">pH Air</div>
+                        <div class="info1_box-info">7.4</div>
+                        <div class="info2_box-info"><span class="status_online">Normal</span></div>
+                    </div>
+                    <div class="box_info_pool">
+                        <div class="title_box-info">Suhu Air</div>
+                        <div class="info1_box-info">25°C</div>
+                        <div class="info2_box-info"><span class="status_online">Normal</span></div>
+                    </div>
+                </div>
+                <div class="box_info_pool">
+                    <div class="switch-label">Status</div>
+                    <div class="switch-sublabel">
+                        Perangkat
+                    </div>
+                    <div class="btn-switch">
+                        <div class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </div>
+                    </div>
+                    <div class="switch-status">Online</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
